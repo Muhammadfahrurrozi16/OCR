@@ -96,16 +96,32 @@ def Predict(Characters, Evaluate=False):
             gray = np.array(cv2.normalize(div, div, 0, 255, cv2.NORM_MINMAX), np.uint8)
 
             _, thresh = cv2.threshold(gray, 180, 255, cv2.THRESH_BINARY_INV)
-            thresh = cv2.resize(thresh, (100, 100), interpolation=cv2.INTER_AREA)
+            # thresh = cv2.resize(thresh, (100, 100), interpolation=cv2.INTER_AREA)
+
+            original_h, original_w = thresh.shape
+            target_size = 100
+            scale = min(target_size / original_h, target_size / original_w)  # Scale to fit within target size
+            
+            new_h = int(original_h * scale)
+            new_w = int(original_w * scale)
+            resized = cv2.resize(thresh, (new_w, new_h), interpolation=cv2.INTER_AREA)
+
+            top = (target_size - new_h) // 2
+            bottom = target_size - new_h - top
+            left = (target_size - new_w) // 2
+            right = target_size - new_w - left
+
+            padded = cv2.copyMakeBorder(resized, top, bottom, left, right, cv2.BORDER_CONSTANT, value=0)
+
 
             # Show the image of the character being predicted
-            plt.imshow(thresh, cmap='gray')
+            plt.imshow(padded, cmap='gray')
             plt.title(f'Predicted Image')
             plt.axis('off')  # Hide axes
             plt.show()
 
             # Prepare the character image for prediction
-            x = np.array([thresh]).reshape(-1, 100, 100, 1) / 255.0
+            x = np.array([padded]).reshape(-1, 100, 100, 1) / 255.0
             y = Models.predict(x)
             y = np.argmax(y)
             predicted_label = list(label_dict.keys())[y]

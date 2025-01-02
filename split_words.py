@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import copy
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 def Sorting_Key(rect):
     global Lines, Size
