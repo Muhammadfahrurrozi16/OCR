@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data Viewer</title>
+</head>
+<body>
+    <h1>Fetched Data from API</h1>
+    {% if title or description %}
+        <h2>Fetched Data:</h2>
+        <p><strong>Title:</strong> {{ title }}</p>
+        <!-- <p><strong>Description:</strong> {{ description }}</p> -->
+    {% else %}
+        <p>No data available</p>
+    {% endif %}
+</body>
+</html>

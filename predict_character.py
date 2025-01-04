@@ -59,18 +59,26 @@ import copy
 import numpy as np 
 from scipy import stats
 import keras
-import matplotlib.pyplot as plt  # Import untuk menampilkan gambar
+# import matplotlib.pyplot as plt  # Import untuk menampilkan gambar
 
 # Load model
-Models = keras.models.load_model('modelocr.keras')
+Models = keras.models.load_model('modelOCRnew.keras')
 
+# label_dict = { 
+#     'Ain' : 'ع', 'alif' :'ا', 'ba' : 'ب', 'daad' : 'ض', 'dal' : 'د', 'fa' : 'ف', 
+#     'gem' : 'ج', 'gen' : 'غ', 'ha':'ه', 'haa' :'ح', 'kaf':'ك', 'khaa' : 'خ', 
+#     'lam' : 'ل', 'lam_alif' : 'لا', 'mim' : 'م', 'nun' : 'ن', 'qaf' : 'ق', 'raa' : 'ر', 
+#     'saad' : 'ص', 'shen' : 'ش', 'sin' : 'س', 'taa' : 'ت', 'tah' : 'ط', 'thaa' : 'ث', 
+#     'waw' : 'و', 'yaa' : 'ي', 'zah' : 'ظ', 'zal' : 'ذ', 'zin' : 'ز'
+# }
 label_dict = { 
-    'Ain' : 'ع', 'alif' :'ا', 'ba' : 'ب', 'daad' : 'ض', 'dal' : 'د', 'fa' : 'ف', 
-    'gem' : 'ج', 'gen' : 'غ', 'ha':'هـ', 'haa' :'ح', 'kaf':'ك', 'khaa' : 'خ', 
-    'lam' : 'ل', 'lam_alif' : 'لا', 'mim' : 'م', 'nun' : 'ن', 'qaf' : 'ق', 'raa' : 'ر', 
-    'saad' : 'ص', 'shen' : 'ش', 'sin' : 'س', 'taa' : 'ت', 'tah' : 'ط', 'thaa' : 'ث', 
-    'waw' : 'و', 'yaa' : 'ي', 'zah' : 'ظ', 'zal' : 'ذ', 'zin' : 'ز'
+    'Ain' : 'Ai', 'alif' :'A', 'ba' : 'B', 'daad' : 'Dh', 'dal' : 'D', 'fa' : 'F', 
+    'gem' : 'J', 'gen' : 'Gh', 'ha':'H', 'haa' :'KH', 'kaf':'K', 'khaa' : 'KHA', 
+    'lam' : 'L', 'lam_alif' : 'llf', 'mim' : 'M', 'nun' : 'N', 'qaf' : 'Q', 'raa' : 'R', 
+    'saad' : 'Sh', 'shen' : 'Sy', 'sin' : 'S', 'taa' : 'T', 'tah' : 'Th', 'thaa' : 'Ts', 
+    'waw' : 'W', 'yaa' : 'Y', 'zah' : 'Zh', 'zal' : 'Dz', 'zin' : 'Z'
 }
+
 
 def Predict(Characters, Evaluate=False):
     Predictions = []
@@ -115,10 +123,10 @@ def Predict(Characters, Evaluate=False):
 
 
             # Show the image of the character being predicted
-            plt.imshow(padded, cmap='gray')
-            plt.title(f'Predicted Image')
-            plt.axis('off')  # Hide axes
-            plt.show()
+            # plt.imshow(padded, cmap='gray')
+            # plt.title(f'Predicted Image')
+            # plt.axis('off')  # Hide axes
+            # plt.show()
 
             # Prepare the character image for prediction
             x = np.array([padded]).reshape(-1, 100, 100, 1) / 255.0
