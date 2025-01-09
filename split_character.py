@@ -225,12 +225,10 @@ def Split_Characters(Words):
                             tengah = box['tengah']
                             
                             if awal and not akhir and not tengah:
-                                # Jika hanya atribut awal yang terisi
                                 box['x'] = x - remaining_w_per_box
                                 box['w'] = w + (2 * remaining_w_per_box)
                                 
                             elif akhir and not awal and not tengah:
-                                # Jika hanya atribut akhir yang terisi
                                 box['w'] = w + remaining_w_per_box
 
                             elif tengah and not awal and not akhir:

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Hadits - Platform Berbagi Hadits</title>
+    <title>Deteksi Hadits - Platform Deteksi Hadits</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -77,14 +77,13 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="fas fa-moon me-2 text-success"></i>
-                Share Hadits
+                Deteksi Hadits
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </nav>
-    <!-- Upload Section -->
     <section class="py-5 bg-light" id="upload">
         <div class="container">
             <h2 class="text-center mb-5">Upload Gambar Hadits</h2>
@@ -94,12 +93,9 @@
                             <ul class="nav nav-pills mb-4 justify-content-center" id="uploadTabs">
                             </ul>
                             <class="tab-content">
-                                <!-- Upload Image Tab -->
                                 <form action="/upload" method="post" enctype="multipart/form-data">
                                     <div class="upload-zone mb-4">
                                         <i class="fas fa-cloud-upload-alt fa-3x text-success mb-3"></i>
-                                        <h4>Drag & Drop Gambar</h4>
-                                        <p class="text-muted">atau</p>
                                         <input type="file" name="file" accept="image/*" class="form-control mb-3">
                                         <button type="submit" class="btn btn-success">Upload Gambar</button>
                                     </div>
@@ -110,8 +106,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
@@ -122,7 +116,7 @@
             </div>
             <hr>
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 Share Hadits. All rights reserved.</p>
+                <p class="mb-0">&copy; 2025 Deteksi Hadits. All rights reserved.</p>
             </div>
         </div>
     </footer>

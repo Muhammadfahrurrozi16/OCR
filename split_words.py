@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import copy
-# import matplotlib.pyplot as plt
 
 def Sorting_Key(rect):
     global Lines, Size
@@ -112,7 +111,6 @@ def Split_Words(Image):
         i += 1
 
     bounding_rects.sort(key = Sorting_Key)
-
     Words = []
     for x, y, w, h in bounding_rects:
         crop = Image[y:y + h, x:x+ w]
